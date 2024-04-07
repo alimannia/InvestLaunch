@@ -1,19 +1,12 @@
+
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Home from './screens/Home';
-import WelcomeScreen from './screens/WelcomeScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigator from './AppNavigator';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <WelcomeScreen />
-    </View>
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});

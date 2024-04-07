@@ -1,8 +1,9 @@
-import React from 'react';
-import { StyleSheet, View, Text, ImageBackground, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect, useCallback } from 'react';
+import { StyleSheet, View, Text, ImageBackground, TouchableOpacity, Button,TextInput,Platform  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const WelcomeScreen = () => {
+  const navigation = useNavigation();
     return (
       <View style={styles.container}>
         <ImageBackground source={require('../assets/three.png')} style={styles.backgroundImage} opacity={0.9}>
@@ -11,7 +12,7 @@ const WelcomeScreen = () => {
               <View style={styles.card}>
                 <Text style={styles.title}>Invest Launch</Text>
                 <Text style={styles.subtitle}>Find out your investment style type and start investing today!</Text>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('QuizScreen')}>
                   <Text style={styles.buttonText}>Get started now</Text>
                 </TouchableOpacity>
               </View>
