@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 
 app.post('/api/message', async (req, res) => {
+    const apiKey = process.env.OPENAI_API_KEY;
   const userMessage = req.body.message;
   try {
     const response = await axios.post('https://api.openai.com/v1/engines/davinci/completions', {
@@ -13,7 +14,7 @@ app.post('/api/message', async (req, res) => {
       max_tokens: 150,
     }, {
       headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+        'Authorization': `Bearer ${apiKey}`,
       },
     });
     const botReply = response.data.choices[0].text.trim();
